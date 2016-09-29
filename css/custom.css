@@ -1,0 +1,15 @@
+body {
+  background-image: url(../img/angular_solidBlack.svg);
+  background-size: 125% 125%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.reveal blockquote {
+  background: rgba(255, 255, 255, 0.1);
+  color: #bbb;
+}
+
+.reveal li {
+  font-size: 95%;
+}
