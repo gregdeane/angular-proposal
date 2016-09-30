@@ -36,53 +36,163 @@
 						## Agenda
 
 						- What is Angular?
-						- Modular
-						- TypeScript
-						- Reactive / RxJS
-						- Pros / cons
+						- Why Angular?
+						- Pros / Cons
 						- Acknowledgments
 					</script>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## What is Angular?
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## What is Angular?
+							> A development platform for building mobile and desktop web applications
 
-						> A development platform for building mobile and desktop web applications
+							Released: 14 Sept 2016 <!-- .element: class="fragment" data-fragment-index="1" -->
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Why Angular?
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### Cross-Platform
 
-						 - Cross-platform
-						 - Performant
-						 - Simple, declarative templates
-						 - Final release
-					</script>
+							- Web
+							- Mobile
+							- Native Mobile
+							- Native Desktop
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### Speed and Performance
+
+							- Ahead-of-time compilation
+							- Built-in lazy loading
+							- Web Workers and server-side rendering
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### Modularity
+
+							- Core functionality moved to modules
+							- Organizes application into cohesive blocks
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### TypeScript
+
+							Written in and for TypeScript
+							- Type System
+							- ES5 + ES2015 + more
+							- Decorators
+							- Async / await
+							- Generics / interfaces / enum
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Pros / Cons
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### Pros
+
+							- Dynamic loading
+							- Shadow DOM
+							- Improved dependency injection
+							- Simple, declarative templates
+							- RxJS support
+							- Async template compilation
+							- Tools for upgrading from 1.x
+							- Style guide
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### Cons
+
+							- Learning curve coming from AngularJS
+							- Dev environment can be difficult to set up
+							- Poor support for legacy browsers
+						</script>
+					</section>
 				</section>
 				<section data-markdown>
-					<script type="text/template">
-						### Cross-Platform
-						- Web <!-- .element: class="fragment" data-fragment-index="1" -->
-						- Mobile <!-- .element: class="fragment" data-fragment-index="1" -->
-						- Native Mobile <!-- .element: class="fragment" data-fragment-index="1" -->
-						- Native Desktop <!-- .element: class="fragment" data-fragment-index="1" -->
-					</script>
+					## Acknowledgments
+
+					- Andre Waltert
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Performant
-						- Ahead-of-time compilation <!-- .element: class="fragment" data-fragment-index="1" -->
-						- Built-in lazy loading <!-- .element: class="fragment" data-fragment-index="1" -->
-						- Web Workers and server-side rendering <!-- .element: class="fragment" data-fragment-index="1" -->
-					</script>
+				<section data-markdown data-transition="convex-in fade-out">
+					## Questions?
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Simple, declarative templates
-						Extensible via custom components <!-- .element: class="fragment" data-fragment-index="1" -->
-					</script>
+				<section data-transition="fade">
+					<h3>NgModule</h3>
+    			<pre>
+	    <code class="hljs">
+      @NgModule({
+        imports: [
+          BrowserModule,
+          routing
+        ],
+        declarations: [
+          AppComponent
+		    ],
+        providers: [
+          APP_PROVIDERS
+        ],
+        bootstrap: [AppComponent]
+      })
+      export class AppModule {}
+      </code>
+    			</pre>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						### Final Release
-						Released: 15 Sept 2016 <!-- .element: class="fragment" data-fragment-index="1" -->
-					</script>
+				<section data-transition="fade">
+					<h3>Component</h3>
+					<pre>
+	    <code class="hljs">
+      @Component({
+        selector: 'app-component',
+        template: `
+          <h1>{{ title }}</h1>
+        `
+      })
+      export class AppComponent {
+        title: string;
+
+        constructor(private service: AppService) {}
+
+        ngOnInit() {
+          this.title = this.service.getTitle();
+        }
+      }
+
+      </code>
+    			</pre>
+				</section>
+				<section data-transition="fade">
+					<h3>Routing</h3>
+					<pre>
+    <code class="hljs">
+    const appRoutes: Routes = [
+      { path: '', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
+      { path: '**', component: PageNotFoundComponent }
+    ];
+
+    export const routing: ModuleWithProviders =
+      RouterModule.forRoot(appRoutes);
+    </code>
+					</pre>
 				</section>
 			</div>
 		</div>
@@ -94,6 +204,7 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				transition: 'convex',
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
