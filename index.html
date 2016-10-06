@@ -38,6 +38,8 @@
 						- What is Angular?
 						- Why Angular?
 						- Key Concepts
+						- Tooling and Support
+						- How to start
 						- Pros / Cons
 						- Acknowledgments
 					</script>
@@ -107,15 +109,7 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							### Modularity
-
-							- Core functionality moved to modules
-							- Organizes application into cohesive blocks
-						</script>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							### Following Standards
+							### Standards
 
 							| AngularJS  | Angular |
 							| ------------- | ------------- |
@@ -124,17 +118,104 @@
 							| Ctrl, Scope, Directive | [Web]Components
 						</script>
 					</section>
+				</section>
+				<section>
 					<section data-markdown>
 						<script type="text/template">
-							### Written in TypeScript
-
-							- Type System
-							- ES5 + ES2015 + more
-							- Decorators
-							- Async / await
-							- Generics / interfaces / enum
+							## Key Concepts
 						</script>
 					</section>
+					<section>
+						<h3>Modules</h3>
+						<pre>
+	    <code class="hljs">
+      @NgModule({
+        imports: [
+          BrowserModule,
+          routing
+        ],
+        declarations: [
+          AppComponent
+        ],
+        providers: [
+          APP_PROVIDERS
+        ],
+        bootstrap: [AppComponent]
+      })
+      export class AppModule {}
+      </code>
+    			</pre>
+					</section>
+					<section>
+						<h3>Components</h3>
+						<pre>
+	    <code class="hljs">
+      @Component({
+        selector: 'app-component',
+        template: `
+          <h1>{{ title }}</h1>
+        `
+      })
+      export class AppComponent {
+        title: string;
+
+        constructor(private service: AppService) {}
+
+        ngOnInit() {
+          this.title = this.service.getTitle();
+        }
+      }
+
+      </code>
+    			</pre>
+					</section>
+					<section>
+						<h3>Routing</h3>
+						<pre>
+    <code class="hljs">
+    const appRoutes: Routes = [
+      { path: 'home', component: HomeComponent },
+      {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AuthGuard],
+        children: [{
+            path: '',
+            children: [
+              { path: 'persons', component: ManagePersonsComponent },
+              { path: '', component: AdminDashboardComponent }
+            ]
+        }]
+      }
+    ];
+    </code>
+					</pre>
+						<pre>
+    <code class="hljs">
+    export const routing: ModuleWithProviders =
+      RouterModule.forRoot(appRoutes);
+    </code>
+					</pre>
+					</section>
+				</section>
+				<section data-markdown>
+					## Tooling and Support
+
+					- Good IDE support
+					- Linter, build tools, coverage
+					- Active development + community
+					- Documentation:
+					  - [Website](https://angular.io/)
+					  - [GitHub](https://github.com/angular/angular)
+					  - [Changelog](https://github.com/angular/angular/blob/master/CHANGELOG.md)
+				</section>
+				<section data-markdown>
+					## How to start
+
+					- Learn ES2015/TypeScript first
+					- Complete the [Tour of Heroes](https://angular.io/docs/ts/latest/tutorial/) tutorial
+					- Webpack, SystemJS, or build your own!
+					- Clone one of the many seeds
 				</section>
 				<section>
 					<section data-markdown>
@@ -146,6 +227,7 @@
 						<script type="text/template">
 							### Pros
 
+							- Written in TypeScript
 							- Dynamic loading
 							- Shadow DOM
 							- Improved dependency injection
@@ -162,6 +244,7 @@
 
 							- Learning curve coming from AngularJS
 							- Dev environment can be difficult to set up
+							- Unclear error messages
 						</script>
 					</section>
 				</section>
