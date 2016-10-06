@@ -10,6 +10,36 @@ body {
   color: #bbb;
 }
 
+.reveal section img {
+  background: none;
+}
+
+.float-left {
+  float: left;
+}
+
+/* Tables */
+.reveal table th {
+  text-align: center;
+}
+
+.reveal table th,
+.reveal table td {
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  border-color: #ddd;
+}
+
+.reveal table th:last-child,
+.reveal table td:last-child {
+  border-right: 0;
+}
+
+.reveal table td {
+  color: #ddd;
+}
+
+/* Flexbox stuff */
 .reveal .flex-container {
   padding: 0;
   margin: 0;
@@ -30,13 +60,32 @@ body {
   overflow: hidden;
   vertical-align: middle;
   text-align: center;
-  margin: 0 5px;
+  margin: 0 2%;
 }
 
 .reveal .flex-item img {
-  height: 250px;
+  height: 150px;
   border: 0;
   margin: 0;
   vertical-align: middle;
   box-shadow: none;
+}
+
+/* Performance slide */
+.reveal .performance div {
+  width: 60%;
+  margin-right: 10px;
+  line-height: 1.1;
+}
+
+.reveal .performance div:last-child {
+  width: 35%;
+}
+
+.reveal .performance li {
+  margin-top: 6px;
+}
+
+.reveal .performance li {
+  margin-bottom: 15px;
 }
