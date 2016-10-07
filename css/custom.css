@@ -19,6 +19,10 @@ body {
   vertical-align: baseline;
 }
 
+.reveal a {
+  cursor: pointer;
+}
+
 .float-left {
   float: left;
 }
@@ -114,3 +118,10 @@ body {
 .reveal .performance li {
   margin-bottom: 15px;
 }
+
+/* How to start */
+.reveal .seeds-1 { color: #e19b80; }
+.reveal .seeds-2 { color: #8ccce2; }
+.reveal .seeds-3 { color: #caa86b; }
+.reveal .seeds-4 { color: #e6d891; }
+.reveal .seeds-5 { color: #9bcc71; }
