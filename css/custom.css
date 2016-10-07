@@ -12,6 +12,11 @@ body {
 
 .reveal section img {
   background: none;
+  border: 0;
+}
+
+.reveal small {
+  vertical-align: baseline;
 }
 
 .float-left {
@@ -21,6 +26,22 @@ body {
 /* Code blocks */
 .reveal pre {
   font-size: 0.4em;
+}
+
+.reveal .angular-cli pre {
+  width: 50%;
+}
+
+.reveal .modules pre {
+  width: 60%;
+}
+
+.reveal .components pre {
+  width: 75%;
+}
+
+.reveal .routing pre {
+  width: 70%;
 }
 
 /* Tables */
@@ -70,7 +91,6 @@ body {
 
 .reveal .flex-item img {
   height: 150px;
-  border: 0;
   margin: 0;
   vertical-align: middle;
   box-shadow: none;

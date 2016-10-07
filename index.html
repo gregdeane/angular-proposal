@@ -118,6 +118,26 @@
 							| Ctrl, Scope, Directive | [Web]Components
 						</script>
 					</section>
+					<section data-markdown class="angular-cli">
+						<script type="text/template">
+							### Angular CLI
+
+							> Angular CLI simplifies creating a working application, right out of the box.
+
+							```bash
+							# create an application
+							ng new
+
+							# generate components, routes, services, and pipes
+							ng generate
+
+							# serve your application
+							ng serve
+							```
+
+							<small>https://github.com/angular/angular-cli</small>
+						</script>
+					</section>
 				</section>
 				<section>
 					<section data-markdown>
@@ -125,20 +145,22 @@
 							## Key Concepts
 						</script>
 					</section>
-					<section>
+					<section class="modules">
 						<h3>Modules</h3>
 						<pre>
 	    <code class="hljs">
       @NgModule({
         imports: [
           BrowserModule,
+          CityModule,
           routing
         ],
         declarations: [
           AppComponent
         ],
         providers: [
-          APP_PROVIDERS
+          CityService,
+          UserService
         ],
         bootstrap: [AppComponent]
       })
@@ -146,7 +168,7 @@
       </code>
     			</pre>
 					</section>
-					<section>
+					<section class="components">
 						<h3>Components</h3>
 						<pre>
 	    <code class="hljs">
@@ -154,6 +176,7 @@
         selector: 'app-component',
         template: `
           <h1>{{ title }}</h1>
+          <input [(ngModel)]="city.name" placeholder="name">
           <button (click)="onSelect(city)">Berlin</button>
         `
       })
@@ -173,12 +196,19 @@
       </code>
     			</pre>
 					</section>
-					<section>
+					<section data-markdown>
+						<script type="text/template">
+							### Components <small>cont.</small>
+
+							<img data-src="img/ng2-component-diagram.svg">
+						</script>
+					</section>
+					<section class="routing">
 						<h3>Routing</h3>
 						<pre>
     <code class="hljs">
     const appRoutes: Routes = [
-      { path: 'home', component: HomeComponent },
+      { path: 'city', component: CityComponent },
       {
         path: 'admin',
         component: AdminComponent,
@@ -186,7 +216,7 @@
         children: [{
             path: '',
             children: [
-              { path: 'persons', component: ManagePersonsComponent },
+              { path: 'cities', component: ManageCitiesComponent },
               { path: '', component: AdminDashboardComponent }
             ]
         }]
@@ -216,7 +246,7 @@
 				<section data-markdown>
 					## How to start
 
-					- Learn ES2015/TypeScript first
+					- Learn ES2015/TypeScript
 					- Complete the [Tour of Heroes](https://angular.io/docs/ts/latest/tutorial/) tutorial
 					- Webpack, SystemJS, or build your own!
 					- Clone one of the many seeds
@@ -232,14 +262,12 @@
 							### Pros
 
 							- Written in TypeScript
-							- Dynamic loading
 							- Shadow DOM
+							- RxJS support
 							- Improved dependency injection
 							- Simple, declarative templates
-							- RxJS support
 							- Async template compilation
 							- Tools for upgrading from 1.x
-							- Style guide
 						</script>
 					</section>
 					<section data-markdown>
@@ -248,7 +276,7 @@
 
 							- Learning curve coming from AngularJS
 							- Dev environment can be difficult to set up
-							- Unclear error messages
+							- Unclear error messages in console
 						</script>
 					</section>
 				</section>
@@ -257,67 +285,8 @@
 
 					- Andre Waltert
 				</section>
-				<section data-markdown data-transition="convex-in fade-out">
+				<section data-markdown>
 					## Questions?
-				</section>
-				<section data-transition="fade">
-					<h3>NgModule</h3>
-    			<pre>
-	    <code class="hljs">
-      @NgModule({
-        imports: [
-          BrowserModule,
-          routing
-        ],
-        declarations: [
-          AppComponent
-        ],
-        providers: [
-          APP_PROVIDERS
-        ],
-        bootstrap: [AppComponent]
-      })
-      export class AppModule {}
-      </code>
-    			</pre>
-				</section>
-				<section data-transition="fade">
-					<h3>Component</h3>
-					<pre>
-	    <code class="hljs">
-      @Component({
-        selector: 'app-component',
-        template: `
-          <h1>{{ title }}</h1>
-        `
-      })
-      export class AppComponent {
-        title: string;
-
-        constructor(private service: AppService) {}
-
-        ngOnInit() {
-          this.title = this.service.getTitle();
-        }
-      }
-
-      </code>
-    			</pre>
-				</section>
-				<section data-transition="fade">
-					<h3>Routing</h3>
-					<pre>
-    <code class="hljs">
-    const appRoutes: Routes = [
-      { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
-      { path: '**', component: PageNotFoundComponent }
-    ];
-
-    export const routing: ModuleWithProviders =
-      RouterModule.forRoot(appRoutes);
-    </code>
-					</pre>
 				</section>
 				<section data-markdown>
 					## Fin
