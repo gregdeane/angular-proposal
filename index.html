@@ -154,18 +154,22 @@
         selector: 'app-component',
         template: `
           <h1>{{ title }}</h1>
+          <button (click)="onSelect(city)">Berlin</button>
         `
       })
       export class AppComponent {
         title: string;
 
-        constructor(private service: AppService) {}
+        constructor(private router: Router, private service: AppService) {}
 
         ngOnInit() {
           this.title = this.service.getTitle();
         }
-      }
 
+        onSelect(city: City): void {
+          this.router.navigate(['/city', city.id]);
+        }
+      }
       </code>
     			</pre>
 					</section>

@@ -18,6 +18,11 @@ body {
   float: left;
 }
 
+/* Code blocks */
+.reveal pre {
+  font-size: 0.4em;
+}
+
 /* Tables */
 .reveal table th {
   text-align: center;
