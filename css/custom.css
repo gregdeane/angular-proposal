@@ -102,13 +102,15 @@ body {
 
 /* Performance slide */
 .reveal .performance div {
-  width: 60%;
-  margin-right: 10px;
-  line-height: 1.1;
+  position: relative;
 }
 
-.reveal .performance div:last-child {
-  width: 35%;
+.reveal .performance ul {
+  position: absolute;
+  top: 8.5rem;
+  right: 5rem;
+  font-size: 1.6rem;
+  color: #2667c8;
 }
 
 .reveal .performance li {
