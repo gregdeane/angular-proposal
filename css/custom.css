@@ -127,3 +127,14 @@ body {
 .reveal .seeds-3 { color: #caa86b; }
 .reveal .seeds-4 { color: #e6d891; }
 .reveal .seeds-5 { color: #9bcc71; }
+
+/* AoT slide */
+.reveal .aot .enhanced-minification div {
+  position: relative;
+}
+
+.reveal .aot .enhanced-minification div div {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
